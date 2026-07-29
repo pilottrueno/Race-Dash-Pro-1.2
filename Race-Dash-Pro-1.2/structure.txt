@@ -1,0 +1,22 @@
+/home/dietpi/Race-Dash-Pro-1.1/
++-- main.py
++-- main_professional.py
++-- hardware/
+¦   L-- worker.py
++-- widgets/
+¦   +-- professional_gauge.py
+¦   +-- tachometer.py
+¦   +-- gauge.py
+¦   L-- sensor.py
++-- screens/
+¦   +-- professional_demo.py
+¦   +-- demo_screen.py
+¦   L-- logs_screen.py
++-- utils/
+¦   L-- swipe_container.py
++-- core/
+¦   +-- resource_manager.py
+¦   +-- state_machine.py
+¦   L-- fps_controller.py
+L-- rgb/
+    L-- rgb_controller.py
