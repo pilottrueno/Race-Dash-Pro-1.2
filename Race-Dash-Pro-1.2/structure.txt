@@ -1,22 +1,81 @@
-/home/dietpi/Race-Dash-Pro-1.1/
-+-- main.py
-+-- main_professional.py
-+-- hardware/
-�   L-- worker.py
-+-- widgets/
-�   +-- professional_gauge.py
-�   +-- tachometer.py
-�   +-- gauge.py
-�   L-- sensor.py
-+-- screens/
-�   +-- professional_demo.py
-�   +-- demo_screen.py
-�   L-- logs_screen.py
-+-- utils/
-�   L-- swipe_container.py
-+-- core/
-�   +-- resource_manager.py
-�   +-- state_machine.py
-�   L-- fps_controller.py
-L-- rgb/
-    L-- rgb_controller.py
+Race-Dash-Pro-1.2/
+│
+├── main.py                      # ✅ Точка входа (запуск приложения)
+├── README.md                    # Документация проекта
+├── requirements.txt             # Список зависимостей Python
+├── LICENSE                      # Лицензия (MIT)
+├── config.json                  # Настройки приложения (темы, пути)
+│
+├── core/                        # 🆕 ЯДРО ПРИЛОЖЕНИЯ
+│   ├── __init__.py
+│   ├── app.py                   # Главный класс приложения
+│   ├── config.py                # Загрузка и управление настройками
+│   └── state_machine.py         # Конечный автомат (BOOT, IDLE, DRIVING, ALARM)
+│
+├── hardware/                    # ✅ ОБОРУДОВАНИЕ
+│   ├── __init__.py
+│   ├── worker.py                # Главный поток для опроса датчиков
+│   ├── can_worker.py            # CAN шина (MegaSquirt, Speeduino)
+│   ├── gps_worker.py            # GPS модуль (NMEA)
+│   └── rgb_controller.py        # Управление RGB-лентой (GPIO 18)
+│
+├── screens/                     # ✅ ЭКРАНЫ
+│   ├── __init__.py
+│   ├── main_screen.py           # Главный экран (ProfessionalDemoScreen)
+│   ├── logs_screen.py           # Экран логов
+│   └── graphs_screen.py         # Экран графиков (заглушка)
+│
+├── widgets/                     # ✅ ВИДЖЕТЫ
+│   ├── __init__.py
+│   ├── professional_gauge.py    # Профессиональный прибор (Haltek/AEM стиль)
+│   ├── gauge.py                 # Индикаторы (BOOST, OIL PRESS)
+│   └── sensor.py                # Датчики (12 штук)
+│
+├── utils/                       # ✅ УТИЛИТЫ
+│   ├── __init__.py
+│   └── swipe_container.py       # Контейнер со свайпами и инерцией
+│
+├── controllers/                 # ✅ КОНТРОЛЛЕРЫ
+│   ├── __init__.py
+│   └── navigation.py            # Управление переключением экранов
+│
+├── images/                      # ✅ ГРАФИКА
+│   ├── icons/                   # Иконки для кнопок
+│   │   ├── rdp_icon.png
+│   │   ├── demo_icon.png
+│   │   ├── logs_icon.png
+│   │   ├── graphs_icon.png
+│   │   └── theme_icon.png
+│   ├── backgrounds/             # Фоны для экранов
+│   │   ├── dark_carbon_bg.png
+│   │   └── light_bg.png
+│   ├── splash/                  # Заставка при запуске
+│   │   └── splash.png
+│   ├── logos/                   # Логотипы
+│   │   └── logo.png
+│   └── animations/              # Анимированные GIF (опционально)
+│
+├── styles/                      # 🆕 СТИЛИ
+│   ├── dark_theme.qss           # Тёмная тема (основная)
+│   ├── light_theme.qss          # Светлая тема
+│   ├── racing_theme.qss         # Гоночная тема (красные акценты)
+│   ├── styles.css               # Общий CSS (опционально)
+│   └── fonts/                   # Шрифты
+│       ├── DS-Digital.ttf       # Цифровой гоночный шрифт
+│       ├── ShareTechMono.ttf    # Моноширинный шрифт
+│       └── Orbitron-Bold.ttf    # Футуристический шрифт
+│
+├── locales/                     # 🆕 ЛОКАЛИЗАЦИЯ (для будущего)
+│   ├── ru_RU.qm                # Русский перевод
+│   └── en_US.qm                # Английский перевод
+│
+├── logs/                        # ✅ ЛОГИ (автоматически создаётся)
+│   └── (сюда пишутся логи)
+│
+├── can/                         # ✅ (ваша папка)
+├── gps/                         # ✅ (ваша папка)
+├── rgb/                         # ✅ (ваша папка)
+├── __pycache__/                 # (кэш Python, игнорировать)
+│
+├── .gitignore                   # Игнорируемые файлы для Git
+└── run.sh                       # Скрипт для быстрого запуска (опционально)
