@@ -1,0 +1,485 @@
+/* ============================================
+   RACE DASH PRO - Общий CSS
+   Базовые стили для всех тем
+   ============================================ */
+
+/* --- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ --- */
+:root {
+    --font-family: 'Roboto Mono', 'Share Tech Mono', monospace;
+    --font-family-display: 'DS-Digital', 'Orbitron', monospace;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --border-radius-xl: 30px;
+    --transition-speed: 0.2s;
+}
+
+/* --- ГЛОБАЛЬНЫЕ СТИЛИ --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+QWidget {
+    font-family: var(--font-family);
+    font-size: 11px;
+    /* Цвета фона и текста задаются в конкретной теме */
+}
+
+/* --- ШРИФТЫ --- */
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('fonts/DS-Digital.ttf');
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('fonts/Orbitron-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Share Tech Mono';
+    src: url('fonts/ShareTechMono.ttf');
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КНОПОК --- */
+QPushButton {
+    border-radius: var(--border-radius-xl);
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 11px;
+    min-width: 80px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+QPushButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ПОЛЕЙ ВВОДА --- */
+QLineEdit, QTextEdit, QPlainTextEdit {
+    border-radius: var(--border-radius-sm);
+    padding: 8px 12px;
+    font-size: 12px;
+    transition: border var(--transition-speed);
+}
+
+QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled {
+    opacity: 0.5;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ СПИСКОВ --- */
+QListWidget, QTableWidget, QTreeWidget {
+    border-radius: var(--border-radius-md);
+    padding: 4px;
+    outline: none;
+    font-size: 12px;
+}
+
+QListWidget::item, QTableWidget::item, QTreeWidget::item {
+    padding: 8px 12px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ПРОКРУТКИ --- */
+QScrollBar:vertical {
+    width: 6px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+QScrollBar:horizontal {
+    height: 6px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    border-radius: 3px;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    height: 0;
+    width: 0;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КОМБОБОКСОВ --- */
+QComboBox {
+    border-radius: var(--border-radius-sm);
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 30px;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 24px;
+}
+
+QComboBox QAbstractItemView {
+    border-radius: var(--border-radius-sm);
+    padding: 4px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ПРОГРЕСС-БАРОВ --- */
+QProgressBar {
+    border-radius: var(--border-radius-sm);
+    height: 12px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ЛЕЙБЛОВ --- */
+QLabel {
+    font-size: 11px;
+}
+
+QLabel[role="title"] {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+QLabel[role="subtitle"] {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+QLabel[role="value"] {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: var(--font-family-display);
+}
+
+QLabel[role="small"] {
+    font-size: 9px;
+    opacity: 0.7;
+}
+
+QLabel[role="unit"] {
+    font-size: 11px;
+    opacity: 0.6;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ GROUPBOX --- */
+QGroupBox {
+    border-radius: var(--border-radius-md);
+    margin-top: 12px;
+    padding-top: 12px;
+    font-weight: 600;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 12px;
+    padding: 0 8px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ДИАЛОГОВ --- */
+QDialog, QMessageBox {
+    border-radius: var(--border-radius-lg);
+    padding: 16px;
+}
+
+QDialog QPushButton, QMessageBox QPushButton {
+    min-width: 80px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ TAB WIDGET --- */
+QTabWidget::pane {
+    border-radius: var(--border-radius-md);
+    padding: 8px;
+}
+
+QTabBar::tab {
+    padding: 8px 16px;
+    margin-right: 4px;
+    border-top-left-radius: var(--border-radius-sm);
+    border-top-right-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ SLIDER --- */
+QSlider::groove:horizontal {
+    height: 4px;
+    border-radius: 2px;
+}
+
+QSlider::handle:horizontal {
+    width: 16px;
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+
+QSlider::groove:vertical {
+    width: 4px;
+    border-radius: 2px;
+}
+
+QSlider::handle:vertical {
+    width: 16px;
+    height: 16px;
+    margin: 0 -6px;
+    border-radius: 8px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ CHECKBOX --- */
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ RADIO BUTTON --- */
+QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ MENU --- */
+QMenuBar {
+    padding: 4px 8px;
+}
+
+QMenuBar::item {
+    padding: 6px 12px;
+    border-radius: var(--border-radius-sm);
+}
+
+QMenu {
+    border-radius: var(--border-radius-sm);
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 6px 20px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ TOOLTIP --- */
+QToolTip {
+    border-radius: var(--border-radius-sm);
+    padding: 4px 8px;
+    font-size: 10px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ STATUS BAR --- */
+QStatusBar {
+    padding: 4px 8px;
+    font-size: 10px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ SPLITTER --- */
+QSplitter::handle {
+    width: 4px;
+    margin: 0 2px;
+}
+
+QSplitter::handle:horizontal {
+    width: 4px;
+}
+
+QSplitter::handle:vertical {
+    height: 4px;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ SCROLL AREA --- */
+QScrollArea {
+    border: none;
+    background: transparent;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ FRAME --- */
+QFrame {
+    border-radius: var(--border-radius-md);
+}
+
+QFrame[frameShape="4"] { /* QFrame::Panel */
+    border: 1px solid;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КАРТОЧЕК --- */
+.card {
+    border-radius: var(--border-radius-md);
+    padding: 12px;
+    background: inherit;
+}
+
+.card-title {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: var(--font-family-display);
+}
+
+.card-unit {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-left: 4px;
+}
+
+/* --- АНИМАЦИИ --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+/* --- ДЛЯ ТАХОМЕТРА (ДОПОЛНИТЕЛЬНЫЕ СТИЛИ) --- */
+ProfessionalGauge {
+    background: transparent;
+}
+
+ProfessionalGauge .rpm-arc {
+    /* Дополнительные стили для дуги RPM */
+}
+
+ProfessionalGauge .speed-value {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: var(--font-family-display);
+}
+
+ProfessionalGauge .gear-text {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* --- ДЛЯ ДАТЧИКОВ (SENSOR CARDS) --- */
+SensorCard {
+    border-radius: var(--border-radius-md);
+    padding: 8px 12px;
+}
+
+SensorCard .sensor-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+SensorCard .sensor-value {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: var(--font-family-display);
+}
+
+SensorCard .sensor-unit {
+    font-size: 10px;
+    opacity: 0.5;
+    margin-left: 4px;
+}
+
+/* --- ДЛЯ ИНДИКАТОРОВ (GAUGES) --- */
+GaugeCard {
+    border-radius: var(--border-radius-lg);
+    padding: 12px 16px;
+}
+
+GaugeCard .gauge-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+GaugeCard .gauge-value {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: var(--font-family-display);
+}
+
+GaugeCard .gauge-unit {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-left: 4px;
+}
+
+/* --- ДЛЯ ЛОГОВ --- */
+LogsScreen QListWidget {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* --- ДЛЯ ГРАФИКОВ --- */
+GraphsScreen QWidget {
+    background: transparent;
+}
+
+/* --- МЕДИА-ЗАПРОСЫ (ДЛЯ РАЗНЫХ ЭКРАНОВ) --- */
+@media (max-width: 800px) {
+    QPushButton {
+        padding: 6px 14px;
+        font-size: 10px;
+        min-width: 60px;
+    }
+    
+    QLabel[role="value"] {
+        font-size: 18px;
+    }
+    
+    ProfessionalGauge .speed-value {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    QPushButton {
+        padding: 4px 10px;
+        font-size: 9px;
+        min-width: 50px;
+    }
+    
+    QLabel[role="title"] {
+        font-size: 14px;
+    }
+    
+    QLabel[role="value"] {
+        font-size: 14px;
+    }
+}
