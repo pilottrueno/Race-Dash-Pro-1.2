@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QStackedWidget
-from PyQt5.QtCore import Qt, QTimer, pyqtSlot
+from PyQt5.QtCore import Qt, QTimer, pyqtSlot, QSize
 from PyQt5.QtGui import QIcon
 
 from utils.swipe_container import SwipeContainer
@@ -10,7 +10,7 @@ from controllers.navigation import NavigationController
 from screens.professional_demo import ProfessionalDemoScreen
 from screens.logs_screen import LogsScreen
 from screens.graphs_screen import GraphsScreen
-from hardware.worker import HardwareThread
+from hardware.worker import HardwareWorke
 from core.config import ConfigManager
 from core.state_machine import StateMachine
 
@@ -25,7 +25,7 @@ class RaceDashApp(QWidget):
         self.state_machine = StateMachine()
         
         # --- АППАРАТНЫЙ ПОТОК ---
-        self.hardware = HardwareThread()
+        self.hardware = HardwareWorker()
         self.hardware.data_updated.connect(self.on_data_updated)
         self.hardware.start()
         
@@ -75,9 +75,9 @@ class RaceDashApp(QWidget):
         
         for text, icon_path, callback in buttons:
             btn = QPushButton(text)
-            if not icon_path:
+            if icon_path:
                 btn.setIcon(QIcon(icon_path))
-                btn.setIconSize(Qt.QSize(24, 24))
+                btn.setIconSize(QSize(24, 24))
             btn.setStyleSheet("""
                 QPushButton {
                     background: #1a1f2a;
